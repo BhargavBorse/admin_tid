@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#dc3545">
     <!-- manifest file -->
-    <link rel="manifest" href="../manifest.json">
+    <link rel="manifest" href="manifest.json">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
@@ -17,11 +17,11 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
     
     <!--Custom CSS-->
-    <link type="text/css" rel="stylesheet" href="../assets/css/custom.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/custom.css" />
     <title>The Intelligent Donor</title>
     
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/png" href="../assets/image/favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="assets/image/favicon.png" />
 </head>
 
 <body>
@@ -41,12 +41,12 @@
                 <a class="nav-link" href="blood-stock.html">Blood Stock</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Hospital
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="add-hospital-detail.html">Add Hospital</a>
-                    <a class="dropdown-item" href="view-hospital.html">View Hospitals</a>
+                    <a class="dropdown-item" href="view-hospital.html"><u>View Hospitals</u></a>
                 </div>
             </li>
             <li class="nav-item">
@@ -56,7 +56,7 @@
                 <a class="nav-link" href="donor-list.html">Donors</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="view-appt.html">View Appointment</a>
+                <a class="nav-link" href="view-appt.html">View Appointment</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -77,73 +77,41 @@
     <div class="row">
         <!-- <img class="mx-auto d-block" src="assets/image/logo-01.png" height="250px" style="margin-top:15px;"> -->
         <div class="col-lg-12 d-flex justify-content-center" style="margin-top:25px;">
-            <h1 class="display-4" style="text-align:center;">Contact details</h1>
+            <h1 class="display-4" style="text-align:center;">Hospital's List    </h1>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <div class="card border-info" style="margin-top:75px;">
-                <div class="card-body ">
-                    <p class="card-text">
-                        <h6 class="card-subtitle mb-2 text-muted">Phone number, Email address and Address will be visible after the donor accepts your request.</h6>
-                        <form class="myForm" onreset="formReset()" id="detsForm">
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="inputName">Name</label>
-                                    <input type="text" class="form-control" id="inputName" placeholder="Name" readonly>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="inputEmail">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="************" readonly>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="inputPhNumber">Phone Number</label>
-                                    <input type="text" class="form-control" id="inputPhNumber" placeholder="************" readonly>
-                                </div>
+            <div class="card" style="margin-top:75px;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-1">
+                            
+                        </div>
+                        <div class="col-md-10">
+                            <div class="table-responsive">          
+                                <table class="table table-hover" id="hospitaltable">
+                                    <thead>
+                                        <tr>
+                                            <th>Hospital Name</th>
+                                            <th>Email</th>
+                                            <th>Address</th>
+                                            <th>Zip</th>
+                                            <th>Phone No</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="inputName">Blood Group</label>
-                                    <input type="text" class="form-control" id="inputBloodGroup" placeholder="Blood Group" readonly>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="inputEmail">Address</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="************" readonly>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="inputPhNumber">Zip</label>
-                                    <input type="text" class="form-control" id="inputZip" placeholder="************" readonly>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="inputName">Gender</label>
-                                    <input type="text" class="form-control" id="inputGender" placeholder="Gender" readonly>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="inputEmail">Do donor fall under any of the conditions or within period of deferment of them?</label>
-                                    <input type="text" class="form-control" id="inputConditions" placeholder="-" readonly>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="inputPhNumber">An approximate date of when donor underwent the selected condition</label>
-                                    <input type="text" class="form-control" id="inputConditionsDate" placeholder="-" readonly>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="inputName">Is donor suffering from any of the diseases</label>
-                                    <input type="text" class="form-control" id="inputDiseases" placeholder="-" readonly>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="inputEmail">An approximate date of when donor underwent the selected disease</label>
-                                    <input type="text" class="form-control" id="inputDiseasesDate" placeholder="-" readonly>
-                                </div>
-                            </div>
-                            <!-- <button type="button" class="btn btn-danger mr-2" id="reqBtn">Send Request</button> -->
-                            <!-- <button type="button" class="btn btn-danger mr-2" id="delBtn">Delete Request</button> -->
-                            <button type="button" class="btn btn-danger mr-2" id="homeBtn">Home</button>
-                        </form>
-                    </p>
+                            
+                        </div>
+                        <div class="col-md-1">
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -179,8 +147,8 @@
 </script>
 
 <!--Custom JS-->
-<script src="js_files/appt-more.js"></script>
-<script src="../assets/js_files/signout.js"></script>
+<script src="js_files/view-hospital.js"></script>
+<script src="assets/js_files/signout.js"></script>
 <!-- <script src="assets/js_files/firestorer.js"></script> -->
 
 <!-- Optional JavaScript -->
@@ -192,7 +160,7 @@ crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 crossorigin="anonymous"></script>
 
-<script src="../assets/js_files/locator.js"></script>
+<script src="assets/js_files/locator.js"></script>
 </body>
 
 </html>
